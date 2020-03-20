@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
             </li>
             <li class="list-inline-item">/</li>
             <li class="list-inline-item">
-                <a href="https://github.com/strifejeyz/">Source Code</a>
+                <a href="https://github.com/strifejeyz/covid-19-tracker-ph">Source Code</a>
             </li>
         </ul>
     </div>
