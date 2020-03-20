@@ -1,0 +1,19 @@
+.table.pui tr > td {
+  width: 50%;
+}
+
+.table.pui {
+  border: none !important;
+}
+
+.badge.badge-danger {
+  background: crimson;
+}
+
+.badge.badge-success {
+  background: #00a85e;
+}
+
+.badge.badge-warning {
+  background: #dcaf1f;
+}

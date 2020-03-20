@@ -1,0 +1,43 @@
+<h3>Useful Links </h3>
+<div class="nav flex-column nav-pills" style="background: #ffffff" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <a *ngFor="let route of sideNav; index as i"
+     routerLink="{{route.link}}"
+     class="nav-link"
+     id="v-pills-{{i}}"
+     data-toggle="pill"
+     href="#v-pills-{{i}}"
+     role="tab"
+     [class.active]="i == 0"
+     aria-selected="true">
+    <span class="fa fa-hashtag"></span>  &nbsp;{{route.text}}
+  </a>
+</div>
+
+<br>
+<br>
+
+<h3>Corona Virus Update!</h3>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Total Cases in the Philippines
+    <span class="badge badge-danger badge-pill">{{casesCount[0]}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Cases of Filipino outside PH
+    <span class="badge badge-danger badge-pill">{{casesOutside[casesOutside.length-1].confirmed}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Cases who tested negative
+    <span class="badge badge-success badge-pill">{{casesCount[1]}}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Pending Test Results
+    <span class="badge badge-warning badge-pill">{{casesCount[2]}}</span>
+  </li>
+</ul>
+
+<br>
+<br>
+
+<h3>Cases Outside Philippines</h3>
+<app-cases-outside-ph></app-cases-outside-ph>

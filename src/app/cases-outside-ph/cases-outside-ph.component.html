@@ -1,0 +1,27 @@
+<table class="table table-light">
+  <thead class="thead-dark">
+  <tr>
+    <th>Country/Territory</th>
+    <th>Confirmed</th>
+    <th>Recovered</th>
+    <th>Died</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of casesOutSidePh">
+    <td>
+      <img *ngIf="p.country_territory_place == 'Diamond Princess'" src="assets/img/ship.png" width="29" alt="{{p.country_territory_place}} flag">
+      <img *ngIf="p.country_territory_place == 'United States[a]'" src="https://www.countryflags.io/US/flat/32.png" width="25" alt="{{p.country_territory_place}} flag">
+      <img *ngIf="p.country_territory_place == 'Singapore'" src="https://www.countryflags.io/SG/flat/32.png" width="25" alt="{{p.country_territory_place}} flag">
+      <img *ngIf="p.country_territory_place == 'Hong Kong'" src="https://www.countryflags.io/HK/flat/32.png" width="25" alt="{{p.country_territory_place}} flag">
+      <img *ngIf="p.country_territory_place == 'United Arab Emirates'" src="https://www.countryflags.io/AE/flat/32.png" width="25" alt="{{p.country_territory_place}} flag">
+      <img *ngIf="p.country_territory_place == 'France'" src="https://www.countryflags.io/FR/flat/32.png" width="25" alt="{{p.country_territory_place}} flag">
+      <img *ngIf="p.country_territory_place == 'Greece'" src="https://www.countryflags.io/GR/flat/32.png" width="25" alt="{{p.country_territory_place}} flag">
+      <img *ngIf="p.country_territory_place == 'Switzerland'" src="https://www.countryflags.io/CH/flat/32.png" width="25" alt="{{p.country_territory_place}} flag">&nbsp;{{p.country_territory_place}}
+    </td>
+    <td>{{p.confirmed}}</td>
+    <td>{{p.recovered}}</td>
+    <td>{{p.died}}</td>
+  </tr>
+  </tbody>
+</table>

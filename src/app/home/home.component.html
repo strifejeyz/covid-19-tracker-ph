@@ -1,0 +1,58 @@
+
+<div>
+  <h2>{{title}}</h2>
+  <p>
+    Below are updated list of all regions, affected/not affected by the Covid-19,
+    this list is updated hourly from legitimate source on Reddit. <br>
+    DISCLAIMER: This information is subject to change from time to time.
+  </p>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card border-danger">
+        <div class="card-header text-danger">Total Cases in the Philippines</div>
+        <div class="card-body text-danger">
+          <h1 class="card-title c">{{casesCount[0]}}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card border-danger">
+        <div class="card-header text-danger">Cases Outside Philippines</div>
+        <div class="card-body text-danger">
+          <h1 class="card-title c">{{casesOutside[casesOutside.length-1].confirmed}}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card border-success">
+        <div class="card-header text-success">Cases who tested <b>negative</b></div>
+        <div class="card-body text-success">
+          <h1 class="card-title c">{{casesCount[1]}}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card border-warning">
+        <div class="card-header text-warning">Pending Test Results</div>
+        <div class="card-body text-warning">
+          <h1 class="card-title c">{{casesCount[2]}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <hr>
+
+  <!-- app cases here -->
+  <app-cases></app-cases>
+</div>
+
+
+
