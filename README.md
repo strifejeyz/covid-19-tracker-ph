@@ -1,2 +1,4 @@
-# covid-19-tracker-ph
-Covid-19 tracker provides all necessary information about affected countries, checkpoints, cases, and such.
+# Covid-19 Tracker 
+Covid-19 Tracker provides access to all the necessary information about confirmed cases (worldwide), checkpoints in Metro Manila, Active cases, and such.
+
+![Strife Framework](assets/img/fbscrape.jpeg)
