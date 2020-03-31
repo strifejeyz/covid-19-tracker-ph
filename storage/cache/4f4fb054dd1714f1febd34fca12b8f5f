@@ -1,4 +1,4 @@
-@extend('layouts/frontend')
+<?php View::extend('layouts/frontend') ?>
 
 
 <div class="container-fluid">
@@ -6,15 +6,15 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12">
-                    <p class="title">Case History as of {{date('F j, Y')}}</p>
+                    <p class="title">Case History as of <?php echo htmlentities(date('F j, Y')) ?></p>
                     <table class="table bg-black cases-stats">
                         <tr>
                             <td>Total Cases</td>
-                            <td><span class="badge badge-warning">{{$country_stats->total_cases}}</span></td>
+                            <td><span class="badge badge-warning"><?php echo htmlentities($country_stats->total_cases) ?></span></td>
                             <th>Deaths</th>
-                            <td><span class="badge badge-danger">{{$country_stats->total_deaths}}</span></td>
+                            <td><span class="badge badge-danger"><?php echo htmlentities($country_stats->total_deaths) ?></span></td>
                             <th>Recovered</th>
-                            <td><span class="badge badge-success">{{$country_stats->total_recovered}}</span></td>
+                            <td><span class="badge badge-success"><?php echo htmlentities($country_stats->total_recovered) ?></span></td>
                         </tr>
                     </table>
                 </div>
@@ -58,51 +58,51 @@
                     </tr>
                     </thead>
                     <tbody style="padding: 0">
-                    {foreach $cases_philippines as $case}
+                    <?php foreach ($cases_philippines as $case) : ?>
 
-                    {if $case->status=='Died'}
+                    <?php if ($case->status=='Died') : ?>
                         <?php $badge = "danger"; ?>
-                    {elseif $case->status=='Recovered'}
+                    <?php elseif ($case->status=='Recovered') : ?>
                      <?php $badge = "success"; ?>
-                    {elseif $case->status=='Admitted'}
+                    <?php elseif ($case->status=='Admitted') : ?>
                         <?php $badge = "warning"; ?>
-                    {else}
+                    <?php else : ?>
                         <?php $badge = "default"; ?>
-                    {endif}
+                    <?php endif ?>
 
-                    {if $case->nationality=='American'}
+                    <?php if ($case->nationality=='American') : ?>
                      <?php $country = "us" ?>
-                    {elseif $case->nationality=='Chinese'}
+                    <?php elseif ($case->nationality=='Chinese') : ?>
                      <?php $country = "cn" ?>
-                    {elseif $case->nationality=='Filipino'}
+                    <?php elseif ($case->nationality=='Filipino') : ?>
                     <?php $country = "ph" ?>
-                    {elseif $case->nationality=='Indian'}
+                    <?php elseif ($case->nationality=='Indian') : ?>
                         <?php $country = "in" ?>
-                    {elseif $case->nationality=='Taiwanese'}
+                    <?php elseif ($case->nationality=='Taiwanese') : ?>
                      <?php $country = "tw" ?>
-                    {else}
+                    <?php else : ?>
                         <?php $country = "PH" ?>
-                    {endif}
+                    <?php endif ?>
 
                     <tr>
-                        <td>{{$case->case_no}}</td>
-                        <td style="min-width:120px;">{{$case->date}}</td>
-                        <td>{{$case->age}}</td>
-                        <td>{{$case->gender}}</td>
+                        <td><?php echo htmlentities($case->case_no) ?></td>
+                        <td style="min-width:120px;"><?php echo htmlentities($case->date) ?></td>
+                        <td><?php echo htmlentities($case->age) ?></td>
+                        <td><?php echo htmlentities($case->gender) ?></td>
                         <td>
 
-                            <img src="https://www.countryflags.io/{{$country}}/flat/32.png" width="25">&nbsp;{{$case->nationality}}
+                            <img src="https://www.countryflags.io/<?php echo htmlentities($country) ?>/flat/32.png" width="25">&nbsp;<?php echo htmlentities($case->nationality) ?>
                         </td>
-                        <td class="hospital">{{$case->hospital_admitted_to}}</td>
-                        <td>{{$case->travel_history}}</td>
+                        <td class="hospital"><?php echo htmlentities($case->hospital_admitted_to) ?></td>
+                        <td><?php echo htmlentities($case->travel_history) ?></td>
                         <td class="status">
 
-                            <span class="badge badge-{{$badge}} rounded">
-                              {{$case->status}}
+                            <span class="badge badge-<?php echo htmlentities($badge) ?> rounded">
+                              <?php echo htmlentities($case->status) ?>
                             </span>
                         </td>
                     </tr>
-                    {endforeach}
+                    <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
@@ -118,4 +118,4 @@
 
 </style>
 
-@stop()
+<?php View::stop() ?>

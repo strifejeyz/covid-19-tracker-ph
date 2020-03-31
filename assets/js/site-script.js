@@ -97,13 +97,40 @@ onExamine = () => {
     }
 }
 
+onOpenMap = (lat, lng) => {
+    // API Key = 'AIzaSyCWHNBhYlulMAP0kERTXRfWRsOSj2vNVoo';
+    let location = { lat: parseFloat(lat), lng: parseFloat(lng) };
+    let mapBody = document.getElementById('map-interpolate');
+    var overlay = document.querySelector('.map-overlay');
+    let gMap = new google.maps.Map(mapBody, {
+        max: 4,
+        center: location,
+        zoom: 13,
+        mapTypeId: 'roadmap'
+    });
 
+    let marker = new google.maps.Marker({
+        position: location,
+        map: gMap
+    });
+
+    if (getComputedStyle(overlay).display == 'none') {
+        overlay.style.display = 'block';
+    } else {
+        overlay.style.display = 'none';
+    }
+}
+
+onCloseMap = () => {
+    let overlay = document.querySelector('.map-overlay');
+        overlay.style.display = 'none';
+}
 
 function counterAnimate(element, value) {
     var element = $(element);
 
     $({value: 0}).stop(true).animate({value: value}, {
-        duration : 3600,
+        duration: 3600,
         easing: "easeOutExpo",
         step: function () {
             var percentageVal = Math.ceil(this.value);

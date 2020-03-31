@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/assets/css/animator.css">
     <link rel="stylesheet" href="/assets/css/sidebar.css">
     <link rel="stylesheet" href="/assets/css/global.css">
-    {!@$css!}
+    <?php echo @$css ?>
 </head>
 <body>
 
@@ -83,13 +83,13 @@
         <hr>
         <ul class="list-group">
             <li class="list-group-item">
-                <span class="badge badge-warning">{{$country_stats->total_cases}} </span> &nbsp;Total confirmed cases.
+                <span class="badge badge-warning"><?php echo htmlentities($country_stats->total_cases) ?> </span> &nbsp;Total confirmed cases.
             </li>
             <li class="list-group-item">
-                <span class="badge badge-danger">{{$country_stats->total_deaths}} </span> &nbsp;Confirmed deaths.
+                <span class="badge badge-danger"><?php echo htmlentities($country_stats->total_deaths) ?> </span> &nbsp;Confirmed deaths.
             </li>
             <li class="list-group-item">
-                <span class="badge badge-success">{{$country_stats->total_recovered}} </span> &nbsp;Total of Recovered
+                <span class="badge badge-success"><?php echo htmlentities($country_stats->total_recovered) ?> </span> &nbsp;Total of Recovered
             </li>
         </ul>
 

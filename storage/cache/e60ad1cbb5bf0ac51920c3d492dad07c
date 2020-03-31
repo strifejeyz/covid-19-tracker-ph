@@ -1,4 +1,4 @@
-@extend('layouts/frontend')
+<?php View::extend('layouts/frontend') ?>
 
 
 <div class="container-fluid">
@@ -120,16 +120,16 @@
 <script>
     window.onload = function () {
         //philippines
-        counterAnimate('#counter_infected',   "{{str_replace(',','',$country_stats->total_cases)}}");
-        counterAnimate('#counter_deaths',     "{{str_replace(',','',$country_stats->total_deaths)}}");
-        counterAnimate('#counter_recoveries', "{{str_replace(',','',$country_stats->total_recovered)}}");
+        counterAnimate('#counter_infected',   "<?php echo htmlentities(str_replace(',','',$country_stats->total_cases)) ?>");
+        counterAnimate('#counter_deaths',     "<?php echo htmlentities(str_replace(',','',$country_stats->total_deaths)) ?>");
+        counterAnimate('#counter_recoveries', "<?php echo htmlentities(str_replace(',','',$country_stats->total_recovered)) ?>");
 
         //world
-        counterAnimate('#world_cases',      "{{str_replace(',','', $world_stats->total_cases)}}");
-        counterAnimate('#world_deaths',     "{{str_replace(',','', $world_stats->total_deaths)}}");
-        counterAnimate('#world_recoveries', "{{str_replace(',','', $world_stats->total_recovered)}}");
+        counterAnimate('#world_cases',      "<?php echo htmlentities(str_replace(',','', $world_stats->total_cases)) ?>");
+        counterAnimate('#world_deaths',     "<?php echo htmlentities(str_replace(',','', $world_stats->total_deaths)) ?>");
+        counterAnimate('#world_recoveries', "<?php echo htmlentities(str_replace(',','', $world_stats->total_recovered)) ?>");
     }
 </script>
 
 
-@stop()
+<?php View::stop() ?>

@@ -2,7 +2,6 @@
 
 use App\Service\CoronaVirusService as CronJob;
 
-
 get('/self-check', 'SelfCheckController@index');
 get('/cases/:str', 'CasesPhilippinesController@index');
 get('/checkpoints/metro-manila', 'CheckpointsController@index');

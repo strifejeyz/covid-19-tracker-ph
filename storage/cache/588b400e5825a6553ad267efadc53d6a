@@ -20,6 +20,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWHNBhYlulMAP0kERTXRfWRsOSj2vNVoo" type="text/javascript"></script>
 <script src="/assets/js/site-script.js"></script>
-{!@$js!}
+<?php echo @$js ?>
 </body>
 </html>

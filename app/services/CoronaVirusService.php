@@ -3,14 +3,14 @@
 class CoronaVirusService
 {
     private $KEY  = '65c498a503msh1e8bad6a712aa9ap101bb4jsn9d51004dfc12';
-    private $HOST = 'coronavirus-monitor.p.rapidapi.com';
+    private $HOST = 'covid-19-data.p.rapidapi.com';
     public  $API  = [
-        'stats_by_country'   => "https://coronavirus-monitor.p.rapidapi.com/coronavirus/latest_stat_by_country.php?country=",
-        'world_curr_stats'   => "https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php",
+        'stats_by_country'   => "https://covid-19-data.p.rapidapi.com/country?format=undefined&name=",
+        'world_curr_stats'   => "https://covid-19-data.p.rapidapi.com/totals?format=undefined",
         'cases_by_country'   => "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php",
         'history_by_country' => "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_particular_country.php?country=",
-        'cases_philippines'  => "https://coronavirus-ph-api.now.sh/cases",
-        'manila_checkpoints' => "https://coronavirus-ph-api.now.sh/mm-checkpoints",
+        'cases_philippines'  => "https://coronavirus-ph-api.herokuapp.com/cases",
+        'manila_checkpoints' => "https://coronavirus-ph-api.herokuapp.com/mm-checkpoints",
     ];
 
 
@@ -25,8 +25,11 @@ class CoronaVirusService
      */
     public function DataStatsByCountry ($country) {
         $data = (json_decode($this->fetch("GET", $this->API['stats_by_country'] . $country)));
-        $data = $data->latest_stat_by_country[0];
+        $data = $data[0];
 
+        $data->total_cases = $data->confirmed;
+        $data->total_deaths = $data->deaths;
+        $data->total_recovered = $data->recovered;
         return ($data);
     }
 
@@ -95,6 +98,10 @@ class CoronaVirusService
         $data = (json_decode($this->fetch("GET",
             $this->API['world_curr_stats'])
         ));
+        $data = $data[0];
+        $data->total_cases = $data->confirmed;
+        $data->total_deaths = $data->deaths;
+        $data->total_recovered = $data->recovered;
 
         return ($data);
     }
@@ -141,6 +148,9 @@ class CoronaVirusService
             $response = curl_exec($curl);
             $err = curl_error($curl);
             curl_close($curl);
+
+//
+//            dump($response);
 
             if ($err) {
                 return "cURL Error #:" . $err;

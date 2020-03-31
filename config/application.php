@@ -30,7 +30,7 @@ define('BASE_URL', 'http://strife');
  * to automatically cache your pages
  * or to turn it off.
  **/
-define('CACHED_VIEWS', FALSE);
+define('CACHED_VIEWS', TRUE);
 
 
 /**
